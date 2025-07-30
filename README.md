@@ -1,4 +1,4 @@
-# slides_on_provenance
+# mini_book_on_provenance
 slides_on_provenance  
 
 These slides can be read as an [mdbook](https://rust-lang.github.io/mdBook/).  

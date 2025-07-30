@@ -5,7 +5,7 @@ This is a Myth:
 
 Truth : 
 1. Compilers produce different binaries for each architecture.  
-2. Compilers produce different binaries for a specific architecture because of optimizations. Compilation 1 may produce a different artefact from compilation 2 in the same physical machine.  
+2. Compilers produce different binaries for a specific architecture because of optimizations. Compilation 1 may produce a different artifact from compilation 2 in the same physical machine.  
 3. Even if you run the same binary in similar machines, the execution environment will be different for each running binary.  
 
 Main Point:  
@@ -31,11 +31,14 @@ Branch prediction and piplelining are both sub-enablers of Out-of-Order executio
 ```Rust
 
 // Arrangement 1
+// You might have written your code in Arrangement 1
+// But the hardware for optimization reasons, decides to re-arrange...
+// ...the order of execution to resemble Arrangement 2
 println!("{}", arr[0]);
 let x = 2;
 let y = 3;
 let z = x + y;
-println!("{}", arr[0])
+println!("{}", arr[1])
 ```
 
 ```Rust
@@ -43,9 +46,10 @@ println!("{}", arr[0])
 // Arrangement 2
 
 // I/O operations on the same array have been put together, 
-// The I/O response may get combined in order to reduce these 2 requests into a single request
+// The I/O response may get combined in order to reduce these 2 ...
+// ...requests into a single request
 println!("{}", arr[0]);
-println!("{}", arr[0])
+println!("{}", arr[1]);
 
 // the 2 operations below have been swapped, there is no consequence
 let y = 3;
@@ -56,9 +60,9 @@ let z = x + y;
 ```
 
 # Compiler optimization
-These boil down to 4 main goals :  
+Compiler optimizations boil down to 3 main goals :  
 1. Maintain the exact behaviour of the initial program
-2. Reduce unnecessary code eg Duplicates, dead-code and repetitie patterns
+2. Reduce unnecessary code eg Duplicates, dead-code and repetitive patterns
 3. Re-order and modify code to suit memory-latency and other factors (eg usage of FPUs)
 
 Examples : 
@@ -74,12 +78,36 @@ Examples :
    sum += arr[2]; 
    sum += arr[3];
    ```
-3. **Constant Propagation**: Replaces variables with known values at compile time. 
+3. **Constant Propagation**: Replaces variables with known values at compile time.  
+```rust
+// the following 3 lines ...
+let x = 2;
+let y = 3;
+let z = x + y;
+
+// ...can be simplified into a single line by the compiler
+let z = 5;
+```  
+
 4. **Dead Code Elimination**: Removes unreachable code.  
+```rust
+// function `craze` has unreachable code that can be removed
+
+fn craze () {
+   let x = 2;
+   let y = x;
+
+   if x == y { println!("sigh"); }
+
+   // this else code can be trashed because it is unreachable
+   else {
+      println!("this else code is unreachable because y was explicitly made to be equal to x just before the if..else block");
+   }
+}
+```
 
 
-(future-me, give live examples, I am not writing this... this is your problem)
-Point is: in as much as this optimizations are formally verifiable, the optimizations implemented depend on heuristics, compiler versions, and compiler configs.  
+The Point here is: in as much as these optimizations are formally verifiable, the optimizations implemented depend on heuristics, compiler versions, and compiler configs.  
 
 Safe code is easy to optimize, but unsafe code is tricky ground.  
 You could say that you will instruct your compiler to only optimize your safe blocks, but code is tightly coupled.  

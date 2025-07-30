@@ -10,9 +10,9 @@ This consequently means that the pointer gains 3 caveats that references don't h
 2. raw-pointers can point to unaligned addresses (unlike reference pointers)
 3. raw-pointers can point to null
 
-These 3 statements are worth explaining. You can skip the next section if they already make sense to you.   
+Here are some notes on [memory alignment](./alignment/alignment.md) if you need them.  
 
-Anyway... here are demos of the disasters above
+Anyway... here are demos of the 3 disasters above
 
 1. Out of bounds access just made us read garbage: 
 ```rust
@@ -28,7 +28,7 @@ fn main() {
     }
 }
 ```
-2. Unaligned memory access just caused a runtime panic, Raw pointers ignore hardware alignment requirements.
+1. Unaligned memory access just caused a runtime panic, Raw pointers ignore hardware alignment requirements.
 ```rust
 // This code compiles, but it gets a runtime error in x86 machines
 fn main() {
@@ -43,7 +43,7 @@ fn main() {
     }
 }
 ```
-3. Dereferencing a null pointer is just the perfect recipe for undefined behaviour. I remember being taught this line even before I knew what dereferencing was...I saw this statement everywhere... I only understood it last year (Imagine!)
+1. Dereferencing a null pointer is just the perfect recipe for undefined behaviour. I remember being taught this line even before I knew what dereferencing was...I saw this statement everywhere... I only understood it last year (Imagine!)
 ```rust
 fn function_that_accidentally_returns_null_ptr (num: &u32) ->  &u32{
     if *num != 10 {

@@ -64,10 +64,10 @@ fn link_nodes(a: &mut Node, b: &mut Node) {
 ```  
 
 
-## Okay, turns out I can't truly escape... but
+## Okay, turns out I can't truly escape raw-pointers... but
 "But I can spend as little time as possible in unsafe section, wrap it up safely and go back to my perfect world!" - me after reading the Rust book.  
 
 
-Yes, you could do that. Everything is simple and straight-foward until reality happens. We are developers. We are developers. Repeat after me: You are a developer. You are a good developer.  
+Yes, you could do that. Everything is simple and straight-foward until reality happens. We are developers. We are developers. Repeat after me: You are a developer. You are a good developer. You know what I mean. Clean code is a disgusting myth.  
 
 I hear there is a language called ATS, and ADA and Idris2 with much better restrictions that enforce even safer code. ATS even comes with verification. Grass is so green there... aaah...Maybe one day... one day we will get there.  

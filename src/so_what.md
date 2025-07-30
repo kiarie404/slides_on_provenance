@@ -3,7 +3,7 @@
 Now you are thinking....   
 
 "Those problems brought up in the previous section are simple... you are a BEAST! You are not a Noob. What is this guy telling you?
-Observe a master at work. Obsere my Magic, my years of experience!"  
+Observe a master at work. Observe my Magic, my years of experience!"  
 
 Infact this is you 👇😂. Wondering what I am saying 
 <figure> 

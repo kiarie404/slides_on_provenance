@@ -7,7 +7,7 @@ Two goals of a compiler:
 
 To achieve the above 2 goals well, the engineers need a lang whose syntax and semantics are so information-rich and explicit to the point that :  
 1. Compiler error messages become very specific
-2. Optimizations become sure-bets instead of may-be's. A May-be optimization is as good as a wrong optimization. Compilers are connservative.  
+2. Optimizations become sure-bets instead of may-be's. A May-be optimization is as good as a wrong optimization. Compilers are conservative.  
 
 ## Is Rust's Type system Nice?
 

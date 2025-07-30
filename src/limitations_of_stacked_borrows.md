@@ -1,19 +1,15 @@
-# Limitations of Stacked Borrows
+# Random thoughts on Stacked Borrows
 
 
 Are we wasting our time learning Stacked borrows and Provenance? ha ha ha. Oh my! Please, let's not get personal here...  
-Never tell a researcher that they are wasting their time. You could trigger despair.  
 
 I see developers as mages. There is no harm in learning many spells. Even the most escentric ones.  
-I love Frieren's philosophy, despite my currently short lifespan.  
-This is no loss. It can't be. right?  
-
 But anyway, here is how I have wasted your time and mental energy.  
 
-A. There exists other different mechanisms
-B. Dynamic nature is not exhaustive
+A. There exists other different mechanisms other than Stacked Borrows
+B. The Dynamic nature of Stacked Borrows is not exhaustive
 
-1. Stacked Borrows are build for sequential single-threaded code. They are not tested for concurret code.  
+1. Stacked Borrows mechanism is built for sequential single-threaded code. They are not tested for concurret code.  
 2. Technical [problems](https://www.ralfj.de/blog/2023/06/02/tree-borrows.html) that I don't yet understand. 
 3. There is a newer model called **[Tree Borrows](https://www.ralfj.de/blog/2023/06/02/tree-borrows.html)** that improves upon Stacked Borrows. And the good news is that it is also not concurrency-aware.
 4. The "[RustBelt](https://plv.mpi-sws.org/rustbeln process immediately after borrow checking is done, so the optimizer does not even have access to that information

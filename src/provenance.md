@@ -7,11 +7,11 @@ We need to define a type called 'Pointer' and another called 'Integer'. They may
 I have a joke : I will treat pointers like true intergers
 ```rust
 fn main(){
-    let x :u32 = 10;
-    let x_ptr = &x as *const u32;
-    let x_ptr_usize = x_ptr as usize;
-    let x_ptr_u8 = x_ptr_usize as u8;
-    let x_ptr2 = (x_ptr_u8 as usize) as *const u32;
+    let x :u32 = 10; // create a value
+    let x_ptr = &x as *const u32; // get the pointer
+    let x_ptr_usize = x_ptr as usize; // get the actual address : eg 0x199901
+    let x_ptr_u8 = x_ptr_usize as u8; // 64-bit number can be converted to a u8
+    let x_ptr2 = (x_ptr_u8 as usize) as *const u32; // convert back to ptr
 
     unsafe {
         println!("old address of x = {}", x_ptr_usize);
